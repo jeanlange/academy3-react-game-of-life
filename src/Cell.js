@@ -13,7 +13,7 @@ class Cell extends Component {
   
   render() {
     return (
-      <span className={"cell " + this.liveClass()}/>
+      <span onClick={() => {this.props.enlivenCell(this.props.rowNumber, this.props.cellNumber)}} className={"cell " + this.liveClass()}/>
     )
   }
 }

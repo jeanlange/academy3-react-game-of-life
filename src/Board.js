@@ -15,6 +15,9 @@ class Board extends Component {
           <Cell
             isAlive={logicalGrid[rowNumber][cellNumber]}
             key={rowNumber + " " + cellNumber}
+            rowNumber={rowNumber}
+            cellNumber={cellNumber}
+            enlivenCell={this.props.enlivenCell}
           />
         );
       }

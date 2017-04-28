@@ -6,11 +6,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.gridSideLength = 25;
-    this.delay = 200;
+    this.delay = 2000;
     this.state = {
       currentBoard: this.initialBoard()
     }
     this.updateBoard = this.updateBoard.bind(this);
+    this.enlivenCell = this.enlivenCell.bind(this);
     setTimeout(this.updateBoard, this.delay);
   }
 
@@ -113,10 +114,16 @@ class App extends Component {
     return logicalGrid;
   }
 
+  enlivenCell(rowNumber, cellNumber) {
+    var tempBoard = this.state.currentBoard;
+    tempBoard[rowNumber][cellNumber] = true;
+    this.setState({currentBoard: tempBoard});
+  }
+
   render() {
     return (      
       <div className="App">
-      <Board logicalBoard={this.state.currentBoard}/>
+      <Board logicalBoard={this.state.currentBoard} enlivenCell={this.enlivenCell}/>
       </div>
     );
   }
