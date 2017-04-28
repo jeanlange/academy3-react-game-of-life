@@ -8,7 +8,11 @@ class Board extends Component {
     
     for(var rowNumber = 0; rowNumber < max; rowNumber++) {
       for(var cellNumber = 0; cellNumber < max; cellNumber++) {
-        grid.push(<Cell alive={false} key={rowNumber + " " + cellNumber}/>);
+        if(rowNumber == 5 && (cellNumber == 4 || cellNumber == 5 || cellNumber == 6)) {
+          grid.push(<Cell alive={true} key={rowNumber + " " + cellNumber}/>);
+        } else {
+          grid.push(<Cell alive={false} key={rowNumber + " " + cellNumber}/>);
+        }
       }
       grid.push(<br key={rowNumber}/>);
     }

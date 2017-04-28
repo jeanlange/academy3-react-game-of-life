@@ -4,7 +4,7 @@ import './Cell.css';
 class Cell extends Component {
   // constructor(props) {
   //   super(props);
-  //   // this.liveClass = this.liveClass.bind(this);
+  //   this.liveClass = this.liveClass.bind(this);
   // }
   
   liveClass() {
