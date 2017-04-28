@@ -13,9 +13,7 @@ class Cell extends Component {
   
   render() {
     return (
-      <span className={"cell " + this.liveClass()}>
-        
-      </span>
+      <span className={"cell " + this.liveClass()}/>
     )
   }
 }
