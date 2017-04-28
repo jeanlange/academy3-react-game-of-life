@@ -8,7 +8,7 @@ class Cell extends Component {
   // }
   
   liveClass() {
-    return this.props.alive ? "live" : "";
+    return this.props.isAlive ? "live" : "dead";
   }
   
   render() {

@@ -2,10 +2,11 @@ span {
   display: inline-block;
   height: 15px;
   width: 15px;
-  background-color: gray;
   margin: 0 2px;
 }
-
+span.dead {
+  background-color: gray;
+}
 span.live {
   background-color: red;
 }

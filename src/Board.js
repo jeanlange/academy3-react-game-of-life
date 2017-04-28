@@ -5,14 +5,32 @@ class Board extends Component {
   render() {
     var grid = [];
     var max = 11;
-    
-    for(var rowNumber = 0; rowNumber < max; rowNumber++) {
-      for(var cellNumber = 0; cellNumber < max; cellNumber++) {
-        if(rowNumber == 5 && (cellNumber == 4 || cellNumber == 5 || cellNumber == 6)) {
-          grid.push(<Cell alive={true} key={rowNumber + " " + cellNumber}/>);
-        } else {
-          grid.push(<Cell alive={false} key={rowNumber + " " + cellNumber}/>);
-        }
+    var rowNumber, cellNumber;
+
+    //construct logical grid filled with dead cells
+    var logicalGrid = [];
+    for(rowNumber = 0; rowNumber < max; rowNumber++) {
+      logicalGrid[rowNumber] = [];
+      for(cellNumber = 0; cellNumber < max; cellNumber++) {
+        logicalGrid[rowNumber][cellNumber] = false;
+      }
+    }
+
+    //set some cells alive
+    logicalGrid[5][4] =
+      logicalGrid[5][5] =
+      logicalGrid[5][6] =
+      true;
+
+    //construct the display grid based on logical grid
+    for(rowNumber = 0; rowNumber < max; rowNumber++) {
+      for(cellNumber = 0; cellNumber < max; cellNumber++) {
+        grid.push(
+          <Cell
+            isAlive={logicalGrid[rowNumber][cellNumber]}
+            key={rowNumber + " " + cellNumber}
+          />
+        );
       }
       grid.push(<br key={rowNumber}/>);
     }
