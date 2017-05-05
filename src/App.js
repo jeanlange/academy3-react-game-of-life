@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.gridSideLength = 25;
-    this.delay = 2000;
+    this.delay = 200;
     this.state = {
       currentBoard: this.initialBoard()
     }
@@ -111,6 +111,12 @@ class App extends Component {
     logicalGrid[2][4] = true;
     logicalGrid[1][4] = true;
     logicalGrid[0][3] = true;
+
+    //4 blinkers eventually
+    logicalGrid[4][20] = true;
+    logicalGrid[4][21] = true;
+    logicalGrid[4][22] = true;
+    logicalGrid[5][21] = true;
     return logicalGrid;
   }
 
